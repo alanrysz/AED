@@ -2,10 +2,10 @@ En esta carpeta podemos encontrar un programa que sumara 2 numeros indicado por 
 
 Etapa #1
 
-Definición del problema
+Definición del problema:
 Se requiere la suma entre dos números que seran brindados por el usuario.
 
-Analisis del problema
+Analisis del problema:
 Para esto debemos solicitar los valores, procesar y mostrar.
 
 RxR       R       (Modelo IPO)
@@ -24,13 +24,13 @@ Representacion textual
 Inicio
   Double: a,b
   
-  Mostrar("Escribe 2 numeros para luego realizar la suma")
-  Leer(a,b)
-  Mostrar("La suma es", a+b)
+  Leer a
+  Leer b
+  Mostrar a+b
   
 Fin
 
-Representacion gráfica
+Representacion gráfica en archivo Adicion.png
 
 
 
