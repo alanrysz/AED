@@ -39,5 +39,5 @@ return (5.0/9.0)*(x-32.0); //Con colocar solo una coma en uno de los números qu
 
 bool AreNear(double a, double b, double c) {
 
-return ((a - b) / a) <= c ? true : false;
+return (a - c)  <= b and b <= (a + c);
 }
