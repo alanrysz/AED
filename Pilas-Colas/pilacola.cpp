@@ -1,5 +1,3 @@
-NBKW89N
-
 #include <iostream>
 #include <stdlib.h>
 
@@ -7,17 +5,23 @@ struct Nodo{
 
 int dato;
 Nodo *siguiente;
-
+	
+};
 //Prototipos
 
 void push(Nodo *&, int);
-void pop(Nodo *&, int &)
-};
+void pop(Nodo *&, int &);
+void enqueue(Nodo *&, Nodo *&, int);
+void dequeue(Nodo *&, Nodo *&, int&);
+bool colaVacia(Nodo *);
+
 
 int main(){
 
 Nodo *pila = NULL;
-
+Nodo *frente = NULL;
+Nodo *fin = NULL;
+	
 char rpta;
 int opc1, opc2, opc3, n;
 
@@ -112,4 +116,20 @@ void pop(Nodo *&pila, int &n){
 	pila = aux -> siguiente;
 	delete aux;
 
+}
+
+void enqueue(Nodo *&frente, Nodo *&fin, int n){
+
+	Nodo *nuevo_nodo = new Nodo();
+	nuevo_nodo -> dato = n;
+	nuevo_nodo -> siguiente;
+	
+	if(colaVacia(frente)){
+	
+	}
+
+}
+
+bool colaVacia(Nodo *frente){
+	return (frente == NULL)? true: false;
 }
