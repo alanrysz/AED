@@ -88,9 +88,10 @@ case 1:
 break;
 
 case 2:
+	cout << "1.Enqueue\n2.Dequeue\n3.Mostrar\n4.Volver al menu principal..\n\n";
 	cout << "Elige la accion a realizar: ";
 	cin >> opc3;
-	cout << "1.Enqueue\n2.Dequeue\n3.Mostrar\n4.Volver al menu principal..";
+	
 
 break;
 
@@ -133,9 +134,14 @@ void enqueue(Nodo *&frente, Nodo *&fin, int n){
 	nuevo_nodo -> siguiente;
 	
 	if(colaVacia(frente)){
-	
+		frente = nuevo_nodo;
 	}
-
+	else{
+		fin -> siguiente = nuevo_nodo;
+	}
+	fin = nuevo_nodo;
+	
+	cout << "Elemento insertado a COLA correctamente! \n\n";
 }
 
 bool colaVacia(Nodo *frente){
