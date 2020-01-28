@@ -22,6 +22,7 @@ void pop(Nodo *&, int &);
 void enqueue(Nodo *&, Nodo *&, int);
 void dequeue(Nodo *&, Nodo *&, int&);
 bool colaVacia(Nodo *);
+void mostrarElementos(Nodo *&);
 
 
 int main(){
@@ -66,6 +67,7 @@ case 1:
 		else if(opc2 == 3){
 		if (pila == NULL)
 			cout <<"No hay elementos en la PILA";
+        mostrarElementos(pila);
         }
             
 		else if(opc2 == 4){
@@ -138,4 +140,14 @@ void enqueue(Nodo *&frente, Nodo *&fin, int n){
 
 bool colaVacia(Nodo *frente){
 	return (frente == NULL)? true: false;
+}
+
+void mostrarElementos(Nodo *&pila){
+
+    Nodo *aux = pila; //apunta al inicio de la lista
+
+    while (aux != NULL){
+        cout << "\t" << aux -> dato <<endl;
+        aux = aux ->siguiente;
+    }
 }
