@@ -25,6 +25,7 @@ bool colaVacia(Nodo *);
 void mostrarElementos(Nodo *&);
 
 
+
 int main(){
 
 Nodo *pila = NULL;
@@ -91,6 +92,18 @@ case 2:
 	cout << "1.Enqueue\n2.Dequeue\n3.Mostrar\n4.Volver al menu principal..\n\n";
 	cout << "Elige la accion a realizar: ";
 	cin >> opc3;
+		
+	if(opc3 == 1){
+	
+	}
+	else if(opc3 == 2)
+	cout << "\nQuitando los nodos de la cola.. \n\n";	
+	while(frente != NULL){
+		dequeue(frente, fin, n);
+		if (frente != NULL)
+		cout << n << ", ";
+		cout << n << ".";
+	}
 	
 
 break;
@@ -116,7 +129,7 @@ void push(Nodo *&pila, int n){
 	pila = nuevo_nodo;
 
 
-	cout << "\nElemento " << n << " agregado a la PILA correctamente.\n";
+	cout << "\tElemento " << n << " agregado a la PILA correctamente.\n";
 }
 
 void pop(Nodo *&pila, int &n){
@@ -141,7 +154,7 @@ void enqueue(Nodo *&frente, Nodo *&fin, int n){
 	}
 	fin = nuevo_nodo;
 	
-	cout << "Elemento insertado a COLA correctamente! \n\n";
+	cout << "\tElemento " << n << " insertado a COLA correctamente! \n\n";
 }
 
 bool colaVacia(Nodo *frente){
@@ -156,4 +169,18 @@ void mostrarElementos(Nodo *&pila){
         cout << "\t" << aux -> dato <<endl;
         aux = aux ->siguiente;
     }
+}
+
+void dequeue(Nodo *&frente, Nodo *&fin, int &n){
+	
+	n = frente -> dato;
+	Nodo *aux = frente;
+	
+	if(frente == fin){
+		frente = NULL;
+		fin = NULL;
+	}
+	frente = frente -> siguiente;
+	
+	delete aux;	
 }
