@@ -34,6 +34,7 @@ Nodo *fin = NULL;
 char rpta;
 int opc1, opc2, opc3, n;
 
+do{
 cout << "\n1.Push/Pop \n2.Enqueue/Dequeue\n3.Salir\n\n";
 cout << "Elige el metodo a utilizar: ";
 cin >> opc1;
@@ -63,7 +64,7 @@ case 1:
                     cin >> rpta;
                     }
                 }while((rpta == 's') || (rpta == 'S'));
-		
+
 		else if(opc2 == 3){
 		if (pila == NULL)
 			cout <<"No hay elementos en la PILA";
@@ -83,8 +84,7 @@ case 1:
             else
                 cout << "\nLa pila esta vacia!\n\n";            
         }
-	}
-	while(opc2 != 5);		
+	}while(opc2 != 5);		
 break;
 
 case 2:
@@ -102,7 +102,7 @@ default:
     cout << "Usted a seleccionado una opcion incorrecta";
 break;
 }
-
+}while(opc1 != 3);
 return 0;
 }
 
