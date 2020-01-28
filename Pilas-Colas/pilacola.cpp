@@ -16,7 +16,7 @@ Nodo *siguiente;
 	
 };
 //Prototipos
-
+void menu();
 void push(Nodo *&, int);
 void pop(Nodo *&, int &);
 void enqueue(Nodo *&, Nodo *&, int);
@@ -24,10 +24,17 @@ void dequeue(Nodo *&, Nodo *&, int&);
 bool colaVacia(Nodo *);
 void mostrarElementos(Nodo *&);
 
-
-
 int main(){
 
+menu();
+
+return 0;
+
+}
+
+//Funcion con las operaciones del menu
+void menu(){
+	
 Nodo *pila = NULL;
 Nodo *frente = NULL;
 Nodo *fin = NULL;
@@ -46,80 +53,128 @@ case 1:
 	do{
    		cout << "1.Push\n2.Pop\n3.Mostrar\n4.Vaciar Pila\n5.Volver al menu principal..\n\n";
 		cout << "Elige la accion a realizar: ";
-        cin >> opc2;
+       	 	cin >> opc2;
     	
-		if (opc2 ==1){
+		//push
+		if (opc2 == 1){
 			do{
-                cout << "Digite un numero: ";
-	            cin >> n;
+                		cout << "Digite un numero: ";
+	            		cin >> n;
+				
 				push(pila, n);
 				cout << "¿Desea agregar otro elemento a la pila? (s/n)\n";
-                cin >> rpta;
+                		cin >> rpta;
 			}while((rpta == 's') ||  (rpta == 'S'));
 		}
-		else if(opc2 == 2) //verificar 
+		
+		//pop
+		else if(opc2 == 2){
        		do{
-                if((pila != NULL)){
+                	if((pila != NULL)){
 				    pop(pila, n);
 				    cout << "¿Desea sacar otro elemento de la pila? (s/n)";
-                    cin >> rpta;
-                    }
+ 		                    cin >> rpta;
+                   	}
                 }while((rpta == 's') || (rpta == 'S'));
+		
+		}
 
+		//mostrarElementos
 		else if(opc2 == 3){
-		if (pila == NULL)
+			if (pila == NULL)
 			cout <<"No hay elementos en la PILA";
-        mostrarElementos(pila);
-        }
+        		mostrarElementos(pila);
+		}
             
+		//vaciar toda la pila
 		else if(opc2 == 4){
-            if (pila != NULL){
-			while( pila != NULL){
-				pop(pila,n);
-				if( pila != NULL)
-					cout << n << ",";
-				else
-					cout << n << ".\n\n";
+            		if (pila != NULL){
+				while( pila != NULL){
+					pop(pila,n);
+					if( pila != NULL)
+						cout << n << ",";
+					else
+						cout << n << ".\n\n";
 			}
             }
             else
                 cout << "\nLa pila esta vacia!\n\n";            
         }
+		
+	//volver al menu principal
 	}while(opc2 != 5);		
-break;
+	break;
 
 case 2:
-	cout << "1.Enqueue\n2.Dequeue\n3.Mostrar\n4.Volver al menu principal..\n\n";
+	cout << "1.Enqueue\n2.Dequeue\n3.Mostrar\n4.Vaciar Cola\n5.Volver al menu principal..\n\n";
 	cout << "Elige la accion a realizar: ";
 	cin >> opc3;
-		
-	if(opc3 == 1){
 	
+	//enqueue
+	if(opc3 == 1){
+		cout << "Agregando elementos a la cola\n\";
+			
+		do{
+                	cout << "Digite un numero: ";
+	            	cin >> n;
+			
+			enqueue(frente, fin, n);
+			cout << "¿Desea agregar otro elemento a la COLA? (s/n)\n";
+                	cin >> rpta;
+			}while((rpta == 's') ||  (rpta == 'S'));
+		
+		}
 	}
-	else if(opc3 == 2)
-	cout << "\nQuitando los nodos de la cola.. \n\n";	
-	while(frente != NULL){
+	
+	//dequeue
+	else if(opc3 == 2){
+	cout << "\nQuitando los nodos de la cola.. \n\n";
+		do{
+			if((pila != NULL)){
+				    dequeue(frente, fin, n);
+				    cout << "¿Desea sacar otro elemento de la COLA? (s/n)";
+ 		                    cin >> rpta;
+				}
+                }while((rpta == 's') || (rpta == 'S'));
+	
+	//mostrarCola
+	else if(opc3 == 3){
+		//verificar
+		while(frente != NULL){
 		dequeue(frente, fin, n);
 		if (frente != NULL)
 		cout << n << ", ";
 		cout << n << ".";
 	}
 	
-
-break;
-
-case 3:
+	//vaciar cola
+	else if (opc 3 == 4){
+		while(frente != NULL){
+			dequeue(frente, fin, n);
+			if (frente != NULL)
+				cout << n << ", ";
+			cout << n << ".";
+		}
+	}
 	
+	//volver al menu principal
+	}while(opc3 != 5);
+		break;
+	
+
 break;
+
+//salir del programa
+case 3:
+	break;
 
 default: 
     cout << "Usted a seleccionado una opcion incorrecta";
 break;
 }
 }while(opc1 != 3);
-return 0;
-}
 
+}
 
 void push(Nodo *&pila, int n){
 
