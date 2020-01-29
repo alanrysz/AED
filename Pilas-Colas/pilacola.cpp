@@ -4,6 +4,9 @@
 * Description : Operaciaciones de pilas y colas
 */
 
+#include "pilascolas.h"
+#include <stdlib.h>
+
 //Prototipos
 void menu();
 void push(Nodo *&, int);
