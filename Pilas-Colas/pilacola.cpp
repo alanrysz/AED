@@ -4,10 +4,18 @@
 * Description : Operaciaciones de pilas y colas
 */
 
-#include "pilacola.h"
+#include <iostream>
 #include <stdlib.h>
 
 using namespace std;
+
+struct Nodo{
+
+int dato;
+Nodo *siguiente;
+	
+};
+
 
 //Prototipos
 void menu();
@@ -17,6 +25,7 @@ void enqueue(Nodo *&, Nodo *&, int);
 void dequeue(Nodo *&, Nodo *&, int&);
 bool colaVacia(Nodo *);
 void mostrarElementos(Nodo *&);
+void mostrarElementosCola(Nodo *&);
 
 int main(){
 
@@ -25,6 +34,10 @@ menu();
 return 0;
 
 }
+
+
+
+//Funcion con las operaciones del menu
 void menu(){
 	
 Nodo *pila = NULL;
@@ -82,14 +95,9 @@ system("cls"); //limpiar pantalla
 		//vaciar toda la pila
 		else if(opc2 == 4){
             		if (pila != NULL){
-				while( pila != NULL){
+				while( pila != NULL)
 					pop(pila,n);
-					if( pila != NULL)
-						cout << n << ",";
-					else
-						cout << n << ".\n\n";
-			}
-            }
+            	}
             else
                 cout << "\nLa pila esta vacia!\n\n";            
         }
@@ -125,32 +133,32 @@ case 2:
 		//dequeue
 		else if (opc3 ==2){
 			cout << "\nQuitando los elementos de la cola.. \n\n";
-			if((frente != NULL)){
+			
+			if((frente == NULL))
+				cout << "\n La cola esta vacia!\n\n";
+			else{
 				do{
 					dequeue(frente, fin, n);
 					cout << "¿Desea sacar otro elemento de la COLA? (s/n)";
  		    	    cin >> rpta;
-        		}while(((rpta == 's') || (rpta == 'S')) && frente != NULL);
+        		}while( ( (rpta == 's') || (rpta == 'S') ) && ( (frente != NULL) || (frente == fin) ));
 			}
-			else
-				cout << "\n La cola esta vacia!\n";
 		}
 	
 		//mostrarCola
 		else if(opc3 == 3){
 			//verificar
-			while(frente != NULL)
-				dequeue(frente, fin, n);
-			}
-	
+				mostrarElementosCola(frente);
+		}
+		
 	//vaciar cola
 		else if (opc3 == 4){
-			if (frente != NULL){
-				while(frente != NULL)
-					dequeue(frente, fin, n);
-			}
-			else
-				cout << "\nLa cola esta vacia!\n";
+			if (frente == NULL)
+				cout << "\nLa cola esta vacia!\n\n";
+			else{
+					while(frente != NULL)
+						dequeue(frente, fin, n);
+				}
 		}
 	
 	//volver al menu principal
@@ -166,7 +174,7 @@ case 3:
 	break;
 
 default: 
-    cout << "Usted a seleccionado una opcion incorrecta";
+    cout << "\nUsted a seleccionado una opcion incorrecta\n";
 }
 }while(opc1 != 3);
 }
@@ -213,6 +221,18 @@ void mostrarElementos(Nodo *&pila){
         aux = aux ->siguiente;
     }
 }
+
+void mostrarElementosCola(Nodo *&frente){
+
+	Nodo *aux1 = frente;
+	
+
+	while (aux1 != NULL){
+        cout << "\t" << aux1 -> dato <<endl;
+        aux1 = aux1 ->siguiente;
+	}
+}
+
 void dequeue(Nodo *&frente, Nodo *&fin, int &n){
 	
 	n = frente -> dato;
@@ -222,7 +242,10 @@ void dequeue(Nodo *&frente, Nodo *&fin, int &n){
 		frente = NULL;
 		fin = NULL;
 	}
+	else
 	frente = frente -> siguiente;
 	
 	delete aux;	
+
+	cout << "\nSe removio el elemento " << n << " de la cola\n";
 }
