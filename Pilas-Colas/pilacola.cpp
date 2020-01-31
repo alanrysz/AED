@@ -134,23 +134,24 @@ case 2:
 		else if (opc3 ==2){
 			cout << "\nQuitando los elementos de la cola.. \n\n";
 			
-			if((frente == NULL))
+			if((fin == NULL))
 				cout << "\n La cola esta vacia!\n\n";
 			else{
 				do{
 					dequeue(frente, fin, n);
 					cout << "¿Desea sacar otro elemento de la COLA? (s/n)";
  		    	    cin >> rpta;
-        		}while( ( (rpta == 's') || (rpta == 'S') ) && ( (frente != NULL) || (frente == fin) ));
+        		}while( ( (rpta == 's') || (rpta == 'S') ) && ( (frente != NULL)  ));
 			}
 		}
 	
 		//mostrarCola
 		else if(opc3 == 3){
 			//verificar
+				if(frente == NULL)
+					cout << "\nLa COLA esta vacia!\n\n";
 				mostrarElementosCola(frente);
 		}
-		
 	//vaciar cola
 		else if (opc3 == 4){
 			if (frente == NULL)
