@@ -58,7 +58,7 @@ struct Lista{
   
   
   //con template
-  
+```  
   typedef struct nodo *Tlista;
 
 void insertarInicio(Tlista &lista, int valor){
@@ -68,7 +68,6 @@ void insertarInicio(Tlista &lista, int valor){
   q.siguiente = lista;
   lista = q;
 }
-
 void eliminarElemento(Tlista &lista, int valor){
  Tlista p, ant;
  p = lista;
@@ -92,3 +91,4 @@ void eliminarElemento(Tlista &lista, int valor){
     cout<<"Lista vacia"<<endl;
   
 }
+```
