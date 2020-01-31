@@ -6,16 +6,9 @@
 
 #include <iostream>
 #include <stdlib.h>
+#include <pilacola.h>
 
 using namespace std;
-
-struct Nodo{
-
-int dato;
-Nodo *siguiente;
-	
-};
-
 
 //Prototipos
 void menu();
