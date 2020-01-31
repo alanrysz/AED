@@ -16,7 +16,7 @@ La operacion Enqueue añade un elemento por el extremo final de la cola, y la op
 # Listas
 
 ## Version contigua
-  
+```  
   struct Lista{
     int pos;
     array <int, N> datos;
@@ -35,7 +35,7 @@ La operacion Enqueue añade un elemento por el extremo final de la cola, y la op
     return true;
 }
 
-bool lista::remove(Lista &ls, unsigned &pos)
+bool remove(Lista &ls, unsigned &pos)
 {
     if (ls.ocup == 0)
         return false;
@@ -44,9 +44,9 @@ bool lista::remove(Lista &ls, unsigned &pos)
     ls.ocup -= 1;
     return true;
 }
-
+```
 ## Version enlazada
-
+```
 struct Lista{
    Nodo *first;
   }
@@ -58,7 +58,7 @@ struct Lista{
   
   
   //con template
-```  
+  
   typedef struct nodo *Tlista;
 
 void insertarInicio(Tlista &lista, int valor){
